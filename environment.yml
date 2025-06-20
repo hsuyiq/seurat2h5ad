@@ -1,0 +1,22 @@
+name: rds2h5ad
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python=3.10
+  - scanpy
+  - anndata
+  - pip
+  - pip:
+      - pyreadr
+      - rpy2
+
+  # R environment
+  - r-base=4.2
+  - r-essentials        # bundles IRkernel + core R packages
+  - bioconductor-seurat=5.3
+  - bioconductor-seurat-disk
+  - hdf5
+  - hdf5r
+  - r-r.utils
