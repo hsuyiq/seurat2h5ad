@@ -5,7 +5,7 @@ library(SeuratDisk)
 library(R.utils)
 
 # 1) Download directly from GEO
-url      <- "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE195nnn/GSE195445/suppl/GSE195445_Human_obj.rds.gz"
+url      <- "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE195nnn/GSE195445/suppl/GSE195445%5FHuman%5Fobj.rds.gz"
 dest_gz  <- "GSE195445_Human_obj.rds.gz"
 if (!file.exists(dest_gz)) {
   download.file(url, destfile = dest_gz, mode = "wb")
