@@ -1,10 +1,20 @@
+#!/usr/bin/env Rscript
+# convert_no_gunzip.R
+
 library(Seurat)
 library(SeuratDisk)
-library(R.utils)
 
-url <- "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE195nnn/GSE195445/suppl/GSE195445%5FHuman%5Fobj.rds.gz"
-download.file(url, destfile = "GSE195445_Human_obj.rds.gz")
+# Input file (already unzipped)
+rds_file <- "GSE195445_Human_obj.rds"
 
-gunzip("GSE195445_Human_obj.rds.gz", remove= FALSE)
+# Build output names
+h5seurat <- sub("\\.rds$", ".h5seurat", rds_file)
+h5ad     <- sub("\\.rds$", ".h5ad",     rds_file)
 
-Convert("GSE195445_Human_obj.rds", dest= "GSE195445_Human_obj.h5ad", overwrite= TRUE)
+# 1) Create the .h5Seurat container
+Convert(rds_file, dest = h5seurat, overwrite = TRUE)
+
+# 2) Convert that into .h5ad
+Convert(h5seurat, dest = h5ad, overwrite = TRUE)
+
+cat("✅ Conversion complete — generated:", h5ad, "\n")
