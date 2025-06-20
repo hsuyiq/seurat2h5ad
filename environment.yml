@@ -4,7 +4,7 @@ channels:
   - bioconda
   - defaults
 dependencies:
-  # ---- Python stack ----
+  # Python stack
   - python=3.10
   - scanpy
   - anndata
@@ -13,10 +13,10 @@ dependencies:
       - pyreadr
       - rpy2
 
-  # ---- R stack ----
-  - r-base=4.2
-  - r-essentials             # includes IRkernel
-  - r-seurat=5.*             # Seurat itself
-  - r-seurat-disk            # SeuratDisk
-  - r-hdf5r                  # HDF5 bindings
-  - r-r.utils                # for gunzip if needed
+  # R stack (ensuring compatibility)
+  - r-base=4.4
+  - r-essentials
+  - r-seurat
+  - r-seurat-disk
+  - r-hdf5r
+  - r-r.utils
