@@ -4,17 +4,18 @@ channels:
   - bioconda
   - defaults
 dependencies:
+  # Python stack
   - python=3.10
   - scanpy
   - anndata
   - pip
   - pip:
-      - pyreadr
-      - rpy2
+    - pyreadr
+    - rpy2
 
-  # R environment
+  # R stack (with IRkernel for Jupyter)
   - r-base=4.2
-  - r-essentials        # bundles IRkernel + core R packages
+  - r-essentials        # brings in IRkernel + core R packages
   - bioconductor-seurat=5.3
   - bioconductor-seurat-disk
   - hdf5
